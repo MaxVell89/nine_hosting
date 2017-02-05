@@ -32,7 +32,7 @@
 <!-- Header -->
 <div class="header" id="js-header">
 
-    <div class="nav-container" id="js-nav">
+    <div class="nav-container" id="js-nav-container">
         <div class="container">
 
             <div class="logo-container"> 
@@ -42,15 +42,16 @@
                 </a>
             </div>
 
-            <nav class="nav">
-                <a href="#" class="nav__item">Hosting</a>
-                <a href="#" class="nav__item">Domains</a>
-                <a href="#" class="nav__item">features</a>
-                <a href="#" class="nav__item">testimonials</a>
-                <a href="#" class="nav__item">contacts</a>
+            <nav class="nav" id="js-nav">
+                <a href="#js-header" class="nav__item">Hosting</a>
+                <a href="#js-domains" class="nav__item">Domains</a>
+                <a href="#js-features" class="nav__item">features</a>
+                <a href="#js-plans" class="nav__item">plans</a>
+                <a href="#js-testimonials" class="nav__item">testimonials</a>
+                <a href="#js-contacts" class="nav__item">contacts</a>
             </nav>
 
-            <a href="#" class="btn btn_login pull-right">login</a>
+            <a href="#js-login-modal" class="btn btn_login pull-right js-modal-show">login</a>
         </div><!-- /.container -->
     </div><!-- /.nav-container -->
 
@@ -94,7 +95,7 @@
 
 
 <!-- Search Domain -->
-<div class="container page-block">
+<div class="container page-block" id="js-domains">
 
     <h2 class="title title_dark text-center">Search Domain</h2>
     <p class="text text_dark text-center">Save big on domain options like .com, .co, .biz, .net, .org and grab new domains like .xyz,<br>.club, .guru, .email, .link, .today, and more!</p>
@@ -128,7 +129,7 @@
 
 <!-- Features -->
 
-<div class="features page-block">
+<div class="features page-block" id="js-features">
     <div class="container">
 
         <h2 class="title text-center">Features</h2>
@@ -224,7 +225,7 @@
 
 
 <!-- Testimonials -->
-<div class="container page-block text-center">
+<div class="container page-block text-center" id="js-testimonials">
     <h2 class="title title_dark">Testimonials</h2>
     <p class="text text_dark">Couple of words about this section</p>
 
@@ -307,7 +308,7 @@
 
 
 <!-- Map -->
-<div class="map">
+<div class="map" id="js-contacts">
     <div class="container">
 
         <h3 class="address-title">We are interested <br>in long-term cooperation</h3>
@@ -405,7 +406,13 @@
 
 </div><!-- /.container footer -->
 
-
+<!-- Modals -->
+<div class="overlay" id="js-owerlay"></div>
+<div class="modal js-modal" id="js-login-modal">
+    <h2>Modal Title</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore aut officiis eaque itaque repudiandae nemo, ea praesentium ullam tempora nisi numquam harum accusamus nihil, animi iure minus quasi labore doloremque.</p>
+    <a href="#" class="btn btn_red js-modal-close">Close</a>
+</div>
 
 
 
