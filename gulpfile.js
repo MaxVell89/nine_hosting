@@ -16,6 +16,8 @@ gulp.task('start', ['style'], function() {
 	gulp.watch('css/**/*.less', ['style']);
 	gulp.watch('*.html')
 		.on('change', server.reload);
+	gulp.watch('js/**/*.js')
+		.on('change', server.reload);
 });
 
 gulp.task('default', ['start']);

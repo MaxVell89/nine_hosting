@@ -50,19 +50,89 @@ $(function() {
     /* Модальные окна
     =======================================*/
 
+    var modalWidth = $('.js-modal').innerWidth();
+
+    $('.js-modal').css({
+        'marginLeft': '-' + (modalWidth / 2) + 'px'
+    });
+
+    $('.js-modal').each(function() {
+        var modalWidth = $(this).innerWidth();
+
+        $(this).css({
+            'marginLeft': '-' + (modalWidth / 2) + 'px'
+        });
+    });
+
     $('.js-modal-show').on('click', function(e) {
         e.preventDefault(); 
 
-        var currentModal = $(this).attr('href');
-        $(currentModal + ', #js-owerlay').fadeIn();  // Показаваем модальное окно
-        $('body').addClass('open-modal');            // Добавляем класс отменяющий скроллинг
+        var currentModal = $(this).attr('href'),
+            widthScrollVisible = $('body').innerWidth(),
+            widthScrollHidden,
+            scrollWidth;
+        $(currentModal).fadeIn();  // Показаваем модальное окно
+        $('body').append('<div class="overlay" id="js-owerlay"></div>').addClass('open-modal');            // Добавляем класс отменяющий скроллинг
+        widthScrollHidden = $('body').innerWidth();
+        scrollWidth = widthScrollHidden - widthScrollVisible;
+        $('body').css({
+            'paddingRight': scrollWidth
+        });
     });
 
-    $('.js-modal-close, #js-owerlay').on('click', function(e) {
+    $('.js-modal-close').on('click', function(e) {
         e.preventDefault();
-        $('.js-modal, #js-owerlay').fadeOut();       // Скрываем модальное окно
-        $('body').removeClass('open-modal');        // Убираем класс отменяющий скроллинг
+        $('.js-modal').fadeOut();       // Скрываем модальное окно
+        $('#js-owerlay').remove();
+        $('body').removeClass('open-modal').css({
+            'paddingRight': 0
+        });        // Убираем класс отменяющий скроллинг
+        
     });
 
+    $('body').on('click', '#js-owerlay', function() {
+        $('.js-modal').fadeOut();       // Скрываем модальное окно
+        $('#js-owerlay').remove();
+        $('body').removeClass('open-modal').css({
+            'paddingRight': 0
+        });;        // Убираем класс отменяющий скроллинг
+    })
+
+
+
+
+    /* FAQ
+    ===================================*/
+
+    $('.js-faq-title').on('click', function(e) {
+        e.preventDefault();
+
+        var $this = $(this),
+            answerId = $this.attr('href');
+
+        if( !$this.hasClass('active')) {
+            $('.js-faq-content').slideUp();
+            $('.js-faq-title').removeClass('active');  // закрываем открытые слайды
+        }
+        
+        $this.toggleClass('active');
+
+        // $(this).next().slideDown('fast');     // Плавно выезжает
+        // $(this).next().slideUp();             // Плавно задвигается
+        $(answerId).slideToggle();         // slideUp и slideDown переключатель
+    });
+
+
+    /* Popup
+    ===================================*/
+
+    $('.js-popup-hover').hover(function() {
+        var $this = $(this),
+            popupId = $this.attr('href');
+
+        $(popupId).fadeIn();
+    }, function() {
+        $('.js-popup').fadeOut();
+    });
 
 });

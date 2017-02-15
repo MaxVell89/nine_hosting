@@ -39,6 +39,9 @@ Table of Content
 8. Plans
 9. Testimonials
 13. Footer
+14. Modal
+15. FAQ
+16. Popup
 ===========================*/
 /* 1. Base styles
 ===========================*/
@@ -48,10 +51,10 @@ body {
   line-height: 1.4;
   margin: 0;
   min-width: 320px;
+  overflow-y: visible;
 }
 body.open-modal {
   overflow-y: hidden;
-  padding-right: 13px;
 }
 *,
 *:before,
@@ -754,7 +757,7 @@ address {
   top: 0;
   left: 0;
   z-index: 999;
-  display: none;
+  display: block;
 }
 .modal {
   width: 300px;
@@ -765,6 +768,60 @@ address {
   top: 100px;
   left: 50%;
   z-index: 1000;
-  margin-left: -150px;
   display: none;
+}
+/* 15. FAQ
+===========================*/
+.faq {
+  width: 600px;
+  margin: 30px auto;
+}
+.faq-title {
+  -webkit-transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  display: block;
+  padding: 5px 10px;
+  color: #000;
+  text-decoration: none;
+  background-color: #eaeaea;
+  border-bottom: 1px solid #d1d1d1;
+}
+.faq-title:hover {
+  background-color: #dddddd;
+}
+.faq-content {
+  padding: 5px 10px;
+  font-size: 12px;
+  display: none;
+}
+/* 16. Popup
+===========================*/
+.rel {
+  position: relative;
+}
+.popup {
+  width: 150px;
+  padding: 5px;
+  background-color: #000;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  z-index: 1;
+  margin-left: -75px;
+  display: none;
+}
+.popup:before {
+  content: "";
+  border-style: solid;
+  border-width: 0 5px 4px 5px;
+  border-color: transparent transparent #000 transparent;
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  z-index: 1;
+  margin-left: -3px;
 }
