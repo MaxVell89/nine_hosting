@@ -135,4 +135,19 @@ $(function() {
         $('.js-popup').fadeOut();
     });
 
+    $('.js-read-more').on('click', function(e) {
+        e.preventDefault();
+
+        var $this = $(this),
+            text = $this.text();
+
+        if ( text == 'Read More') {
+            $this.text('Hide');
+        } else {
+            $this.text('Read More');
+        }
+
+        $this.prev('.js-read-more-text').toggleClass('hidden');
+    });
+
 });
